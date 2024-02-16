@@ -1,0 +1,38 @@
+### Recuperar todas las películas
+GET http://localhost:1234/movies
+
+### Recuperar una película por id
+GET http://localhost:1234/movies/A6A93EBFCCD911EEB138489EBD172048
+
+### Recuperar todas las películas por un género con query string
+GET http://localhost:1234/movies?genre=Crime
+
+### Crear una película con POST
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+    "sql": "SELECT * FROM users",
+    "title": "Chamous: The Nine Radiances",
+    "year": 1975,
+    "director": "Miguel Gallardo Revaliente",
+    "duration": 175,
+    "poster": "https://img.fruugo.com/product/4/49/14441494_max.jpg",
+    "genre": [
+        "Crime",
+        "Drama"
+    ]
+}
+
+### Borrar una pelicula
+DELETE http://localhost:1234/movies/FBBFAC6BCCCE11EEB138489EBD172048
+
+### Actualizar una película
+PATCH http://localhost:1234/movies/2EF6154BCCCE11EEB138489EBD172048
+Content-Type: application/json
+
+{
+    "id": 1234,
+    "year": 2010,
+    "title": "Inception"
+}
