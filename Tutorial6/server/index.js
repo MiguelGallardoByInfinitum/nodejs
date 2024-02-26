@@ -3,6 +3,7 @@ import logger from 'morgan'
 
 import { Server } from 'socket.io'
 import { createServer } from 'node:http'
+import 'dotenv/config'
 
 import mysql from 'mysql2/promise'
 

@@ -34,11 +34,14 @@
         const messages = document.getElementById('messages')
 
         socket.on('chat message', (msg, serverOffset, username) => {
-            const item = `<li>
+            const localUsername = localStorage.getItem('username')
+            const textAlign = (username !== localUsername) ? 'text-align: end;' : ''
+            const item = `<li style='${textAlign}'>
                 <p>${msg}</p>
                 <small>${username}</small>
                 </li>`
             messages.insertAdjacentHTML('beforeEnd', item)
+            messages.scrollTop = messages.scrollHeight;
             socket.auth.serverOffset = serverOffset
         })
 
@@ -108,6 +111,7 @@
           padding: 4px;
           position: absolute;
           right: 0;
+          background-color: #121212;
         }
     
         #input {
